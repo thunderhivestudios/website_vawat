@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
-import headerLogo from "../assets/img/logo/header-logo.svg";
-import blackLogo from "../assets/img/logo/black-logo.svg";
+import headerLogo from "./../assets/img/logo/header-logo.svg";
+import blackLogo from "./../assets/img/logo/black-logo.svg";
 
-import { navLinks } from "../data/contactInfo";
 import { useViewport } from "../contexts/viewportContext";
+import { useLanguage } from "../contexts/languageContext";
+import { navLinks } from "../data/contactInfo";
+
 
 interface HeaderProps {
   onSidebarToggle: () => void;
@@ -12,6 +14,7 @@ interface HeaderProps {
 const Header: React.FC<HeaderProps> = ({ onSidebarToggle }) => {
   const [isSticky, setIsSticky] = useState(false);
   const { isMobile } = useViewport();
+  const { lang, setLang } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => setIsSticky(window.scrollY > 100);
@@ -50,8 +53,37 @@ const Header: React.FC<HeaderProps> = ({ onSidebarToggle }) => {
                 </div>
               )}
 
+              <div
+                className="language-toggle ml-3"
+                style={{ display: "flex", alignItems: "center", fontSize: "0.9rem" }}
+              >
+                <button
+                  onClick={() => setLang("nl")}
+                  className={`${lang === "nl" ? "active" : ""}`}
+                  style={{
+                    padding: "0.3rem 0.6rem",
+                    marginRight: "0.3rem",
+                    color: lang === "nl" ? (isSticky ? "var(--header)" : "var(--white)") : "inherit",
+                  }}
+                >
+                  NL
+                </button>
+                <span style={{ marginRight: "0.3rem" }}>|</span>
+                <button
+                  onClick={() => setLang("en")}
+                  className={`${lang === "en" ? "active" : ""}`}
+                  style={{
+                    padding: "0.3rem 0.6rem",
+                    color: lang === "en" ? (isSticky ? "var(--header)" : "var(--white)") : "inherit",
+                  }}
+                >
+                  EN
+                </button>
+              </div>
+
+
               {/* === Sidebar Toggle Button === */}
-              <div className="header__hamburger d-xl-block my-auto">
+              <div className="header__hamburger d-xl-block my-auto ml-3">
                 <div className="sidebar__toggle" onClick={onSidebarToggle}>
                   <div className="header-bar">
                     <span></span>
