@@ -2,6 +2,7 @@ import React from "react";
 import { translations } from "./translations";
 import { useLanguage } from "../../contexts/languageContext";
 
+import serviceShape from "../../assets/img/shape/serviceShape1_1.png";
 import subTitleIcon from "../../assets/img/icon/subTitleIcon.svg";
 import coreFeatureThumb from "../../assets/img/core-feature/coreFeatureThumb2_1.jpg";
 
@@ -67,6 +68,11 @@ const Services: React.FC<ServicesProps> = ({ onSelectService, hiddenIndices = []
                   src={coreFeatureThumb}
                   alt="Core feature"
                   className="w-full h-auto object-cover rounded-2xl"
+                />
+                <img
+                  src={serviceShape}
+                  alt="Decorative shape"
+                  className="absolute top-0 right-0 w-1/2 h-auto opacity-70"
                 />
               </div>
             </div>
