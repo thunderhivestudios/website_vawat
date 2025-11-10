@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import headerLogo from "./../assets/img/logo/header-logo.svg";
 import blackLogo from "./../assets/img/logo/black-logo.svg";
 
@@ -6,36 +7,36 @@ import { useViewport } from "../contexts/viewportContext";
 import { useLanguage } from "../contexts/languageContext";
 import { navLinks } from "../data/contactInfo";
 
-
 interface HeaderProps {
   onSidebarToggle: () => void;
-  onNavigateHome: () => void;
-  pageView: "home" | "servicesDetail";
 }
 
-const Header: React.FC<HeaderProps> = ({ onSidebarToggle, onNavigateHome, pageView }) => {
+const Header: React.FC<HeaderProps> = ({ onSidebarToggle }) => {
   const [isSticky, setIsSticky] = useState(false);
   const { isMobile } = useViewport();
   const { lang, setLang } = useLanguage();
+  const location = useLocation();
 
   useEffect(() => {
-    const handleScroll = () => setIsSticky(window.scrollY > 100);
+    const handleScroll = () => setIsSticky(window.scrollY > 0);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const isHome = location.pathname === "/";
+
   return (
-    <header id="header-sticky" className={`header-1 ${isSticky || pageView !== "home" ? "sticky" : ""}`}>
+    <header id="header-sticky" className={`header-1 ${isSticky || !isHome ? "sticky" : ""}`}>
       <div className="container-fluid">
         <div className="mega-menu-wrapper">
           <div className="header-main">
             <div className="logo">
-              <a href="/" className="header-logo">
+              <Link to="/" className="header-logo">
                 <img src={headerLogo} alt="logo" />
-              </a>
-              <a href="/" className="header-logo-2">
+              </Link>
+              <Link to="/" className="header-logo-2">
                 <img src={blackLogo} alt="logo" />
-              </a>
+              </Link>
             </div>
 
             <div className="header-right d-flex justify-content-end align-items-center">
@@ -44,11 +45,29 @@ const Header: React.FC<HeaderProps> = ({ onSidebarToggle, onNavigateHome, pageVi
                   <div className="main-menu">
                     <nav id="mobile-menu">
                       <ul>
-                        {navLinks.map((link) => (
-                          <li key={link.href} className={link.className || ""}>
-                            <a href={link.href} onClick={onNavigateHome}>{link.label}</a>
-                          </li>
-                        ))}
+                        {navLinks.map((link) => {
+                          const isActive = isHome && window.location.hash === link.href;
+                          return (
+                            <li key={link.href} className={isActive ? "active" : ""}>
+                              {isHome ? (
+                                <a
+                                  href={link.href}
+                                  onClick={(e) => {
+                                    e.preventDefault();
+                                    const el = document.querySelector(link.href);
+                                    if (el) {
+                                      el.scrollIntoView({ behavior: "smooth" });
+                                    }
+                                  }}
+                                >
+                                  {link.label}
+                                </a>
+                              ) : (
+                                <Link to={`/#${link.href.replace("#", "")}`}>{link.label}</Link>
+                              )}
+                            </li>
+                          );
+                        })}
                       </ul>
                     </nav>
                   </div>
@@ -65,7 +84,7 @@ const Header: React.FC<HeaderProps> = ({ onSidebarToggle, onNavigateHome, pageVi
                   style={{
                     padding: "0.3rem 0.6rem",
                     marginRight: "0.3rem",
-                    color: lang === "nl" ? (isSticky || pageView !== "home" ? "var(--header)" : "var(--white)") : "inherit",
+                    color: lang === "nl" ? (isSticky || !isHome ? "var(--header)" : "var(--white)") : "inherit",
                   }}
                 >
                   NL
@@ -76,13 +95,12 @@ const Header: React.FC<HeaderProps> = ({ onSidebarToggle, onNavigateHome, pageVi
                   className={`${lang === "en" ? "active" : ""}`}
                   style={{
                     padding: "0.3rem 0.6rem",
-                    color: lang === "en" ? (isSticky || pageView !== "home" ? "var(--header)" : "var(--white)") : "inherit",
+                    color: lang === "en" ? (isSticky || !isHome ? "var(--header)" : "var(--white)") : "inherit",
                   }}
                 >
                   EN
                 </button>
               </div>
-
 
               {/* === Sidebar Toggle Button === */}
               <div className="header__hamburger d-xl-block my-auto ml-3">

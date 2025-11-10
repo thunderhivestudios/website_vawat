@@ -1,5 +1,5 @@
 import React from "react";
-import { contactInfo, socialLinks, companyInfo, creatorInfo } from "../../data/contactInfo"; // adjust the path if needed
+import { socialLinks, creatorInfo } from "../../data/contactInfo"; // adjust the path if needed
 
 const Footer: React.FC = () => {
     return (

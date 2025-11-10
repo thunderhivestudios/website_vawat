@@ -10685,11 +10685,6 @@ textarea.is-invalid {
   z-index: 9;
   max-height: 124px;
 }
-@media (max-width: 1199px) {
-  .core-feature-box.style1 {
-    flex-wrap: wrap;
-  }
-}
 .core-feature-box.style1 .title-wrap {
   color: var(--theme);
   font-family: var(--title);

@@ -1,8 +1,9 @@
 import React from "react";
 import type { ServiceDetail } from "../../interfaces/types";
 
+import mainImage from "../../assets/img/service/details-1.jpg";
+
 const ServiceDetails: React.FC<ServiceDetail> = ({
-    mainImage,
     title,
     tags = [],
     secondaryColumns = [],

@@ -4,7 +4,6 @@ import { type ServiceDetail } from "../../interfaces/types";
 export const translations: { nl: ServiceDetail[]; en: ServiceDetail[] } = {
   nl: [
     {
-      mainImage: "src/assets/img/service/details-1.jpg",
       title: "Wateroplossingen voor Voedings-, Dranken- en Farmaceutische Industrie",
       tags: ["Voeding & Dranken", "Farmaceutisch", "Waterkwaliteit"],
       overview:
@@ -36,7 +35,6 @@ export const translations: { nl: ServiceDetail[]; en: ServiceDetail[] } = {
     }
     ,
     {
-      mainImage: "src/assets/img/service/details-1.jpg",
       title: "Complete Waterbehandelingsoplossingen",
       tags: ["Ultrafiltratie", "Membraantechnologie", "Wateroptimalisatie"],
       overview:
@@ -71,7 +69,6 @@ export const translations: { nl: ServiceDetail[]; en: ServiceDetail[] } = {
         "VaWat levert hoogwaardige waterbehandelingsoplossingen, afgestemd op uw specifieke behoeften. Onze focus ligt op maximale efficiëntie, minimale afvalproductie en energieverbruik, en het behalen van de gestelde kwaliteitsnormen.",
     },
     {
-      mainImage: "src/assets/img/service/details-1.jpg",
       title: "Levering van Onderdelen en Verbruiksgoederen",
       tags: ["Onderdelen", "Verbruiksgoederen", "Leveranciersnetwerk"],
       overview:
@@ -101,7 +98,6 @@ export const translations: { nl: ServiceDetail[]; en: ServiceDetail[] } = {
         "Vindt u bepaalde stukken van uw installatie niet terug? Vraag het aan VaWat en u ontvangt snel een passende oplossing. Contacteer ons nu voor een vrijblijvende offerte!",
     },
     {
-      mainImage: "src/assets/img/service/details-1.jpg",
       title: "Projectbegeleiding en Engineering",
       tags: ["Projectbegeleiding", "Engineering", "Waterbehandeling"],
       overview:
@@ -134,7 +130,6 @@ export const translations: { nl: ServiceDetail[]; en: ServiceDetail[] } = {
 
   en: [
     {
-      mainImage: "src/assets/img/service/details-1.jpg",
       title: "Water Solutions for Food, Beverage & Pharmaceutical Industry",
       tags: ["Food & Beverage", "Pharmaceutical", "Water Quality"],
       overview:
@@ -165,7 +160,6 @@ export const translations: { nl: ServiceDetail[]; en: ServiceDetail[] } = {
         "VaWat provides companies with complete water project solutions, leveraging expertise in consultancy, project management, and production processes.",
     },
     {
-      mainImage: "src/assets/img/service/details-1.jpg",
       title: "Complete Water Treatment Solutions",
       tags: ["Ultrafiltration", "Membrane Tech", "Water Optimization"],
       overview:
@@ -200,7 +194,6 @@ export const translations: { nl: ServiceDetail[]; en: ServiceDetail[] } = {
         "VaWat delivers high-quality water treatment solutions tailored to your specific needs. Our focus is on maximum efficiency, minimal waste production and energy use, while achieving the set quality standards.",
     },
     {
-      mainImage: "src/assets/img/service/details-1.jpg",
       title: "Supply of Parts and Consumables",
       tags: ["Parts", "Consumables", "Supplier Network"],
       overview:
@@ -230,7 +223,6 @@ export const translations: { nl: ServiceDetail[]; en: ServiceDetail[] } = {
         "Can’t find certain parts for your existing system? Ask VaWat — you’ll receive an effective solution quickly. Contact us now for a free quote!",
     },
     {
-      mainImage: "src/assets/img/service/details-1.jpg",
       title: "Project Support and Engineering",
       tags: ["Project Support", "Engineering", "Water Treatment"],
       overview:

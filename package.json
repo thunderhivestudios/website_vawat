@@ -3,11 +3,14 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://torbenvanassche.github.io/website_vawat",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@react-three/drei": "^10.7.6",
@@ -15,6 +18,7 @@
     "@tailwindcss/vite": "^4.1.14",
     "bootstrap": "^5.3.8",
     "counterup2": "^2.0.2",
+    "gh-pages": "^6.3.0",
     "jquery": "^3.7.1",
     "jquery-circle-progress": "^1.2.2",
     "jquery-nice-select": "^1.1.0",

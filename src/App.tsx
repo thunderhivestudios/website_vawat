@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
+import { HashRouter as Router, Routes, Route, useNavigate, useParams, useNavigationType } from "react-router-dom";
 import "./App.css";
 
-import Preloader from "./components/preloader";
 import Header from "./components/header";
 import Intro from "./components/intro/intro";
 import Offcanvas from "./components/offCanvas";
@@ -11,79 +11,97 @@ import Footer from "./components/footer/footer";
 
 import { useLanguage } from "./contexts/languageContext";
 import ServiceDetails from "./components/details/details";
-
 import { type ServiceDetail } from "./interfaces/types";
 import { translations } from "./components/details/translations";
 import ContactSection from "./components/contact/contact";
 
+// ScrollToTop handles scroll behavior on navigation
+const ScrollToTop: React.FC = () => {
+  const navigationType = useNavigationType();
+
+  useEffect(() => {
+    if (navigationType === "POP") {
+      window.scrollTo({ top: 0, behavior: "instant" });
+    } else {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  }, [navigationType]);
+
+  return null;
+};
+
+// Wrapper component to handle service details via URL param
+const ServiceDetailPage: React.FC = () => {
+  const { lang } = useLanguage();
+  const { serviceIndex } = useParams<{ serviceIndex: string }>();
+  const index = serviceIndex ? parseInt(serviceIndex) : null;
+  const selectedService: ServiceDetail | null =
+    index !== null ? translations[lang][index] : null;
+
+  if (!selectedService) return <div>Service not found</div>;
+
+  return <ServiceDetails {...selectedService} />;
+};
+
+const HomePage: React.FC = () => {
+  const navigate = useNavigate();
+
+  return (
+    <>
+      <section className="intro-section fix" id="home">
+        <Intro />
+      </section>
+
+      <section className="about-section fix section-padding" id="about">
+        <About />
+      </section>
+
+      <section id="service">
+        <Services
+          hiddenIndices={[4]}
+          onSelectService={(index) => navigate(`/services/${index}`)}
+        />
+      </section>
+
+      <section>
+        <ContactSection />
+      </section>
+    </>
+  );
+};
+
 const App: React.FC = () => {
   const [isOffcanvasOpen, setIsOffcanvasOpen] = useState(false);
 
-  const [pageView, setPageView] = useState<"home" | "servicesDetail">("home");
-
-  const { lang } = useLanguage();
-  const [selectedServiceIndex, setSelectedServiceIndex] = useState<number | null>(null);
-  const selectedService: ServiceDetail | null =
-    selectedServiceIndex !== null ? translations[lang][selectedServiceIndex] : null;
-
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'instant' })
-  }, [pageView]);
-
   return (
-    <div className="vh-100 flex flex-column">
-      <button id="back-top" className="back-to-top">
-        <i className="fa-solid fa-chevron-up"></i>
-      </button>
+    <Router>
+      <ScrollToTop />
 
-      <Offcanvas
-        isOpen={isOffcanvasOpen}
-        onClose={() => setIsOffcanvasOpen(false)}
-      />
-      <div className="offcanvas__overlay"></div>
+      <div className="vh-100 flex flex-column">
+        <button id="back-top" className="back-to-top">
+          <i className="fa-solid fa-chevron-up"></i>
+        </button>
 
-      <Header
-        onSidebarToggle={() => setIsOffcanvasOpen(true)}
-        onNavigateHome={() => setPageView("home")}
-        pageView={pageView}
-      />
+        <Offcanvas
+          isOpen={isOffcanvasOpen}
+          onClose={() => setIsOffcanvasOpen(false)}
+        />
+        <div className="offcanvas__overlay"></div>
 
-      <main className="flex-grow-1">
-        {pageView === "home" && (
-          <>
-            {/* Intro Section */}
-            <section className="intro-section fix" id="home">
-              <Intro />
-            </section>
+        <Header onSidebarToggle={() => setIsOffcanvasOpen(true)} />
 
-            {/* About Section */}
-            <section className="about-section fix section-padding" id="about">
-              <About />
-            </section>
+        <main className="flex-grow-1">
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/services/:serviceIndex" element={<ServiceDetailPage />} />
+          </Routes>
+        </main>
 
-            {/* Services Section */}
-            <section id="service" >
-              <Services hiddenIndices={[4]} onSelectService={(index) => {
-                setSelectedServiceIndex(index);
-                setPageView("servicesDetail");
-              }} />
-            </section>
-            <section>
-              <ContactSection></ContactSection>
-            </section>
-          </>
-        )}
-
-        {pageView === "servicesDetail" && selectedService && (
-
-          <ServiceDetails {...selectedService} />
-        )}
-      </main>
-
-      <footer className="footer-section">
-        <Footer />
-      </footer>
-    </div>
+        <footer className="footer-section">
+          <Footer />
+        </footer>
+      </div>
+    </Router>
   );
 };
 
