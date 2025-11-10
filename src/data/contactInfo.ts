@@ -19,7 +19,6 @@ export const companyInfo = {
 }
 
 export const socialLinks = [
-  { icon: "fab fa-facebook-f", url: "#", name: "Facebook" },
   { icon: "fab fa-linkedin-in", url: "https://www.linkedin.com/in/eddy-van-assche-9364749/", name: "LinkedIn" },
 ];
 

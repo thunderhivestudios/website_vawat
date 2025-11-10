@@ -60,12 +60,6 @@ const About: React.FC = () => {
                 </div>
 
                 <div className="contact-meta">
-                  <div className="btn-wrapper wow fadeInUp" data-wow-delay="0.3s">
-                    <a className="theme-btn" href="about.html">
-                      {text.buttonText} <i className="fa-sharp fa-regular fa-arrow-up-right"></i>
-                    </a>
-                  </div>
-
                   <div className="profile-meta wow fadeInUp" data-wow-delay="0.5s">
                     <div className="thumb">
                       <img

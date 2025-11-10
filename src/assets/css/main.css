@@ -4327,18 +4327,12 @@ input.main-search-input::placeholder {
 .footer-widgets-wrapper .single-footer-widget .footer-content p {
   color: var(--white);
 }
-.footer-widgets-wrapper .single-footer-widget .footer-content .social-icon {
-  margin-top: 40px;
+.social-icon {
   gap: 15px;
   position: relative;
   z-index: 9;
 }
-@media (max-width: 575px) {
-  .footer-widgets-wrapper .single-footer-widget .footer-content .social-icon {
-    margin-top: 20px;
-  }
-}
-.footer-widgets-wrapper .single-footer-widget .footer-content .social-icon a {
+.social-icon a {
   width: 36px;
   height: 36px;
   line-height: 36px;
@@ -4351,9 +4345,9 @@ input.main-search-input::placeholder {
   background-color: transparent;
   border: 1px solid rgba(227, 227, 227, 0.2);
 }
-.footer-widgets-wrapper .single-footer-widget .footer-content .social-icon a:hover {
-  background-color: var(--theme);
-  color: var(--white);
+.social-icon a:hover {
+  background-color: var(--white);
+  color: var(--black);
   border: 1px solid transparent;
 }
 .footer-widgets-wrapper .single-footer-widget .footer-content .contact-info {
@@ -4751,7 +4745,7 @@ input.main-search-input::placeholder {
     gap: 20px;
   }
 }
-.service-deatails-wrapper .details-content .post-card li {
+.details-content .post-card li  {
   color: var(--theme);
   font-size: 16px;
   font-weight: 500;
@@ -4782,27 +4776,26 @@ input.main-search-input::placeholder {
     font-size: 28px;
   }
 }
-.service-deatails-wrapper .details-content .list-items {
+.details-content .list-items {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 @media (max-width: 1399px) {
-  .service-deatails-wrapper .details-content .list-items {
+  .details-content .list-items {
     flex-wrap: wrap;
     gap: 20px;
   }
 }
-.service-deatails-wrapper .details-content .list-items li {
+.details-content .list-items li {
   color: var(--text);
-  text-transform: capitalize;
   position: relative;
 }
-.service-deatails-wrapper .details-content .list-items li span {
+.details-content .list-items li span {
   padding-left: 25px;
   display: inline-block;
 }
-.service-deatails-wrapper .details-content .list-items li::before {
+.details-content .list-items li::before {
   position: absolute;
   top: 10px;
   left: 0;
@@ -10690,6 +10683,7 @@ textarea.is-invalid {
   transition: all 0.4s ease-in-out;
   position: relative;
   z-index: 9;
+  max-height: 124px;
 }
 @media (max-width: 1199px) {
   .core-feature-box.style1 {
@@ -10704,6 +10698,7 @@ textarea.is-invalid {
   font-weight: 500;
   line-height: normal;
   letter-spacing: -0.96px;
+  padding-right: 25px;
 }
 @media (max-width: 1199px) {
   .core-feature-box.style1 .title-wrap {

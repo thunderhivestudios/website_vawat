@@ -2,88 +2,83 @@ import React from "react";
 import { translations } from "./translations";
 import { useLanguage } from "../../contexts/languageContext";
 
-// Import service images and icons
-import serviceThumb1 from "../../assets/img/service/serviceCardThumb1_1.jpg";
-import serviceThumb2 from "../../assets/img/service/serviceCardThumb1_2.jpg";
-import serviceThumb3 from "../../assets/img/service/serviceCardThumb1_3.jpg";
 import serviceShape from "../../assets/img/shape/serviceShape1_1.png";
 import subTitleIcon from "../../assets/img/icon/subTitleIcon.svg";
+import coreFeatureThumb from "../../assets/img/core-feature/coreFeatureThumb2_1.jpg";
 
-// Arrays for thumbs, icons, delays, and links
-const serviceThumbs = [serviceThumb1, serviceThumb2, serviceThumb3];
-const serviceIcons = ["icon-serviceIcon1_1", "icon-serviceIcon1_2", "icon-serviceIcon1_3"];
 const serviceDelays = ["0.2s", "0.4s", "0.7s"];
-const serviceLinks = ["service-details.html", "service-details.html", "service-details.html"];
-const placeholderIcon = "icon-placeholder"; // fallback class if icon not defined
 
-const Services: React.FC = () => {
+interface ServicesProps {
+  onSelectService: (index: number) => void;
+  hiddenIndices?: number[];
+}
+
+const Services: React.FC<ServicesProps> = ({ onSelectService, hiddenIndices = [] }) => {
   const { lang } = useLanguage();
   const t = translations[lang];
 
   return (
-    <section className="service-section section-padding section-bg fix" id="service">
-      <div className="service-container-wrapper style1">
-        <div className="shape">
-          <img src={serviceShape} alt="shape" />
-        </div>
-
-        <div className="container">
-          <div className="section-title maxw-470 text-center mx-auto">
-            <span className="subtitle wow fadeInUp">
-              <img src={subTitleIcon} alt="icon" /> {t.sectionSubtitle}
-            </span>
-            <h2 className="wow fadeInUp" data-wow-delay=".3s">
-              {t.sectionTitle}
-            </h2>
+    <section className="core-feature-section section-padding fix" id="services">
+      <div className="container">
+        <div className="core-feature-wrapper style1 relative">
+          <div className="absolute right-0 top-0 -z-10 opacity-10">
+            <img src={serviceShape} alt="shape" />
           </div>
 
-          <div className="service-wrapper style1">
-            <div className="row g-4">
-              {t.services.map((service, index) => {
-                // Determine thumb, icon, delay, link with fallback
-                const thumb = serviceThumbs[index] || serviceThumbs[serviceThumbs.length - 1];
-                const icon = serviceIcons[index] || placeholderIcon;
-                const delay = serviceDelays[index] || "0.3s";
-                const link = serviceLinks[index] || "#";
+          <div className="row gy-5 gx-64 items-center">
+            <div className="col-lg-6">
+              <div className="core-feature-content">
+                <div className="section-title mb-4">
+                  <span className="subtitle wow fadeInUp flex items-center gap-2">
+                    <img src={subTitleIcon} alt="icon" />
+                    {t.sectionSubtitle}
+                  </span>
+                  <h2 className="wow fadeInUp" data-wow-delay=".3s">
+                    {t.sectionTitle}
+                  </h2>
+                </div>
 
-                // Warn if data arrays are shorter than services
-                if (!serviceThumbs[index]) {
-                  console.warn(`Warning: No thumb defined for service index ${index}. Using fallback.`);
-                }
-                if (!serviceIcons[index]) {
-                  console.warn(`Warning: No icon defined for service index ${index}. Using placeholder.`);
-                }
+                {t.services.map((service, index) => {
+                  const delay = serviceDelays[index] || "0.3s";
+                  const isHidden = hiddenIndices.includes(index);
 
-                return (
-                  <div key={index} className="col-xl-4 col-md-6">
+                  return (
                     <div
-                      className="service-card style1 wow fadeInUp"
-                      data-tilt
-                      data-tilt-max="15"
+                      key={index}
+                      className={`core-feature-box style1 wow fadeInUp service-box cursor-pointer }`}
                       data-wow-delay={delay}
+                      onClick={() => {
+                        if (!isHidden) onSelectService(index);
+                      }}
                     >
-                      <div className="thumb">
-                        <img src={thumb} alt={service.title} />
+                      <div className="title-wrap flex items-center gap-3">
+                        <span className="whitespace-nowrap">{service.title}</span>
                       </div>
-                      <div className="content">
-                        <h4>
-                          <a href={link}>{service.title}</a>
-                        </h4>
-                        <p className="text">{service.text}</p>
-                        <div className="icon">
-                          <i className={icon}></i>
-                        </div>
-                      </div>
-                      <div className="link-meta">
-                        <a href={link}>{t.readMore}</a>
-                        <a href={link}>
-                          <i className="fa-sharp fa-regular fa-arrow-up-right"></i>
-                        </a>
+
+                      <p className="text">{service.text}</p>
+
+                      <div className={`icon ${isHidden ? "invisible" : ""}`}>
+                        <i className="fa-regular fa-arrow-down-right"></i>
                       </div>
                     </div>
-                  </div>
-                );
-              })}
+                  );
+                })}
+              </div>
+            </div>
+
+            <div className="col-lg-6">
+              <div className="core-feature-thumb wow img-custom-anim-right relative">
+                <img
+                  src={coreFeatureThumb}
+                  alt="Core feature"
+                  className="w-full h-auto object-cover rounded-2xl"
+                />
+                <img
+                  src={serviceShape}
+                  alt="Decorative shape"
+                  className="absolute top-0 right-0 w-1/2 h-auto opacity-70"
+                />
+              </div>
             </div>
           </div>
         </div>

@@ -9,9 +9,11 @@ import { navLinks } from "../data/contactInfo";
 
 interface HeaderProps {
   onSidebarToggle: () => void;
+  onNavigateHome: () => void;
+  pageView: "home" | "servicesDetail";
 }
 
-const Header: React.FC<HeaderProps> = ({ onSidebarToggle }) => {
+const Header: React.FC<HeaderProps> = ({ onSidebarToggle, onNavigateHome, pageView }) => {
   const [isSticky, setIsSticky] = useState(false);
   const { isMobile } = useViewport();
   const { lang, setLang } = useLanguage();
@@ -23,7 +25,7 @@ const Header: React.FC<HeaderProps> = ({ onSidebarToggle }) => {
   }, []);
 
   return (
-    <header id="header-sticky" className={`header-1 ${isSticky ? "sticky" : ""}`}>
+    <header id="header-sticky" className={`header-1 ${isSticky || pageView !== "home" ? "sticky" : ""}`}>
       <div className="container-fluid">
         <div className="mega-menu-wrapper">
           <div className="header-main">
@@ -44,7 +46,7 @@ const Header: React.FC<HeaderProps> = ({ onSidebarToggle }) => {
                       <ul>
                         {navLinks.map((link) => (
                           <li key={link.href} className={link.className || ""}>
-                            <a href={link.href}>{link.label}</a>
+                            <a href={link.href} onClick={onNavigateHome}>{link.label}</a>
                           </li>
                         ))}
                       </ul>
@@ -63,7 +65,7 @@ const Header: React.FC<HeaderProps> = ({ onSidebarToggle }) => {
                   style={{
                     padding: "0.3rem 0.6rem",
                     marginRight: "0.3rem",
-                    color: lang === "nl" ? (isSticky ? "var(--header)" : "var(--white)") : "inherit",
+                    color: lang === "nl" ? (isSticky || pageView !== "home" ? "var(--header)" : "var(--white)") : "inherit",
                   }}
                 >
                   NL
@@ -74,7 +76,7 @@ const Header: React.FC<HeaderProps> = ({ onSidebarToggle }) => {
                   className={`${lang === "en" ? "active" : ""}`}
                   style={{
                     padding: "0.3rem 0.6rem",
-                    color: lang === "en" ? (isSticky ? "var(--header)" : "var(--white)") : "inherit",
+                    color: lang === "en" ? (isSticky || pageView !== "home" ? "var(--header)" : "var(--white)") : "inherit",
                   }}
                 >
                   EN

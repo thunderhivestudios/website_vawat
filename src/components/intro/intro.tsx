@@ -1,14 +1,20 @@
 import React from "react";
 
 // Import images
-import heroLogo from "../assets/img/logo/logo.svg";
-import arrowIcon from "../assets/img/hero/arrow.png";
-import heroImage from "../assets/img/hero/01.jpg";
+import heroLogo from "../../assets/img/logo/logo.svg";
+import arrowIcon from "../../assets/img/hero/arrow.png";
+import heroImage from "../../assets/img/hero/01.jpg";
 
 // Import data
-import { companyInfo, socialLinks } from "../data/contactInfo";
+import { companyInfo, socialLinks } from "../../data/contactInfo";
+import { useLanguage } from "../../contexts/languageContext";
+import { translations } from "./translations";
+import AnimatedCounter from "../animatedCounter";
 
 const Hero: React.FC = () => {
+  const { lang } = useLanguage();
+  const t = translations[lang];
+
   return (
     <section className="hero-section hero-1 fix">
       {/* === Social + Logo === */}
@@ -17,13 +23,11 @@ const Hero: React.FC = () => {
           <img src={heroLogo} alt="logo" />
         </a>
         <ul className="social-list">
-          <li>
-            {socialLinks.map((social, index) => (
-              <a key={index} href={social.url}>
-                {social.name}
-              </a>
-            ))}
-          </li>
+          {socialLinks.map((social, index) => (
+            <li key={index}>
+              <a href={social.url}>{social.name}</a>
+            </li>
+          ))}
         </ul>
       </div>
 
@@ -41,29 +45,24 @@ const Hero: React.FC = () => {
               </div>
 
               <div className="hero-counter-items">
+                {/* === Amount Counter === */}
                 <div className="counter-box">
-                  <h2>
-                    <span className="counter-number">4.98</span>
-                  </h2>
                   <div className="content">
-                    <div className="star">
-                      <i className="fa-solid fa-star"></i>
-                      <i className="fa-solid fa-star"></i>
-                      <i className="fa-solid fa-star"></i>
-                      <i className="fa-solid fa-star"></i>
-                      <i className="fa-regular fa-star"></i>
-                    </div>
-                    <p>Best rated agency</p>
+                    <h2>
+                      <AnimatedCounter target={150000} duration={1200} className="counter-number" />+
+                    </h2>
+                    <p>{t.waterCleaned}</p>
                   </div>
                 </div>
 
+                {/* === Customers Counter === */}
                 <div className="counter-box">
                   <h2>
-                    <span className="counter-number">98</span>+
+                    <AnimatedCounter target={98} duration={1200} className="counter-number" />+
                   </h2>
                   <div className="content">
-                    <p>Genuine repeated</p>
-                    <p>happy customers.</p>
+                    <p>{t.happyCustomers.line1}</p>
+                    <p>{t.happyCustomers.line2}</p>
                   </div>
                 </div>
               </div>
