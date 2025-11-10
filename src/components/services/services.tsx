@@ -72,7 +72,7 @@ const Services: React.FC<ServicesProps> = ({ onSelectService, hiddenIndices = []
                 <img
                   src={serviceShape}
                   alt="Decorative shape"
-                  className="absolute top-0 right-0 w-1/2 h-auto opacity-70"
+                  className="position-absolute top-0 right-0 w-1/2 opacity-70"
                 />
               </div>
             </div>
