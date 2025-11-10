@@ -10,6 +10,7 @@ import { companyInfo, socialLinks } from "../../data/contactInfo";
 import { useLanguage } from "../../contexts/languageContext";
 import { translations } from "./translations";
 import AnimatedCounter from "../animatedCounter";
+import Bubbles from "../bubbles/bubbles";
 
 const Hero: React.FC = () => {
   const { lang } = useLanguage();
@@ -36,6 +37,7 @@ const Hero: React.FC = () => {
         <div className="row g-4">
           <div className="col-lg-6">
             <div className="hero-content">
+              <Bubbles></Bubbles>
               <h1 className="wow fadeInUp" data-wow-delay=".3s">
                 {companyInfo.slogan}
               </h1>
@@ -49,7 +51,7 @@ const Hero: React.FC = () => {
                 <div className="counter-box">
                   <div className="content">
                     <h2>
-                      <AnimatedCounter target={150000} duration={1200} className="counter-number" />+
+                      <AnimatedCounter target={150000} duration={1200} className="counter-number" />L+
                     </h2>
                     <p>{t.waterCleaned}</p>
                   </div>
@@ -71,7 +73,7 @@ const Hero: React.FC = () => {
 
           {/* === Hero Image === */}
           <div className="col-lg-6">
-            <div className="hero-image">
+            <div className="hero-image z-1">
               <img src={heroImage} alt="hero" />
             </div>
           </div>
