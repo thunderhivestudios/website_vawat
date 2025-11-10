@@ -29,7 +29,7 @@ export const translations = {
     title: "Neem contact met ons op",
     form: {
       heading: "Neem contact op",
-      fullName: "Volledige naam",
+      fullName: "Naam",
       email: "E-mailadres",
       phone: "Telefoonnummer",
       subject: "Onderwerp",

@@ -22,18 +22,17 @@ const Services: React.FC<ServicesProps> = ({ onSelectService, hiddenIndices = []
       <div className="container">
         <div className="core-feature-wrapper style1 relative">
           <div className="row gy-5 gx-64 items-center">
+            <div className="section-title mb-4">
+              <span className="subtitle wow fadeInUp flex items-center gap-2">
+                <img src={subTitleIcon} alt="icon" />
+                {t.sectionSubtitle}
+              </span>
+              <h2 className="wow fadeInUp" data-wow-delay=".3s">
+                {t.sectionTitle}
+              </h2>
+            </div>
             <div className="col-lg-6">
               <div className="core-feature-content">
-                <div className="section-title mb-4">
-                  <span className="subtitle wow fadeInUp flex items-center gap-2">
-                    <img src={subTitleIcon} alt="icon" />
-                    {t.sectionSubtitle}
-                  </span>
-                  <h2 className="wow fadeInUp" data-wow-delay=".3s">
-                    {t.sectionTitle}
-                  </h2>
-                </div>
-
                 {t.services.map((service, index) => {
                   const delay = serviceDelays[index] || "0.3s";
                   const isHidden = hiddenIndices.includes(index);
@@ -41,14 +40,14 @@ const Services: React.FC<ServicesProps> = ({ onSelectService, hiddenIndices = []
                   return (
                     <div
                       key={index}
-                      className={`core-feature-box style1 wow fadeInUp service-box cursor-pointer }`}
+                      className={`core-feature-box style1 wow fadeInUp service-box`}
                       data-wow-delay={delay}
                       onClick={() => {
                         if (!isHidden) onSelectService(index);
                       }}
                     >
                       <div className="title-wrap flex items-center gap-3">
-                        <span className="whitespace-nowrap">{service.title}</span>
+                        <span className="whitespace-nowrap mw-150">{service.title}</span>
                       </div>
 
                       <p className="text">{service.text}</p>

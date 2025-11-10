@@ -73,7 +73,7 @@ const Hero: React.FC = () => {
 
           {/* === Hero Image === */}
           <div className="col-lg-6">
-            <div className="hero-image z-1">
+            <div className="hero-image z-100">
               <img src={heroImage} alt="hero" />
             </div>
           </div>

@@ -31,7 +31,7 @@ const About: React.FC = () => {
                 </div>
 
                 <div className="shape">
-                  <img src={aboutShape} alt="shape" />
+                  <img src={aboutShape} alt="shape" style={{visibility: "hidden"}}/>
                 </div>
 
                 <div className="counter-box">

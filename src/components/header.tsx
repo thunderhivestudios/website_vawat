@@ -18,7 +18,7 @@ const Header: React.FC<HeaderProps> = ({ onSidebarToggle }) => {
   const location = useLocation();
 
   useEffect(() => {
-    const handleScroll = () => setIsSticky(window.scrollY > 0);
+    const handleScroll = () => setIsSticky(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -30,7 +30,7 @@ const Header: React.FC<HeaderProps> = ({ onSidebarToggle }) => {
       <div className="container-fluid">
         <div className="mega-menu-wrapper">
           <div className="header-main">
-            <div className="logo">
+            <div className="logo vawat-logo-override-horizontal">
               <Link to="/" className="header-logo">
                 <img src={headerLogo} alt="logo" />
               </Link>
