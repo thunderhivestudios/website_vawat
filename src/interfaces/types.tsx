@@ -14,4 +14,5 @@ export interface ServiceDetail {
   progressItems?: { title: string; value: number; style?: string }[];
   additionalImages?: string[];
   paragraph?: string;
+  data_id?: string;
 }

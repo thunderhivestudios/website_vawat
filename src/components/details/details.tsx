@@ -10,15 +10,15 @@ const ServiceDetails: React.FC<ServiceDetail> = ({
     benefits = [],
     additionalImages = [],
     paragraph,
+    data_id = "",
 }) => {
     return (
         <section className="service-details-section fix section-padding">
             <div className="container custom-container-4">
                 <div className="service-details-wrapper">
 
-                    {/* Main Image */}
                     {mainImage && (
-                        <div className="service-details-image wow fadeInUp" data-wow-delay=".3s">
+                        <div className="service-details-image wow fadeInUp image-debug-wrapper" data-label={data_id} data-wow-delay=".3s">
                             <img src={mainImage} alt="Service" />
                         </div>
                     )}
@@ -39,7 +39,7 @@ const ServiceDetails: React.FC<ServiceDetail> = ({
 
                         {/* Secondary Columns */}
                         {secondaryColumns.length > 0 && (
-                            <div className="row align-items-center">
+                            <div className="row align-items-center mt-5">
                                 {secondaryColumns.map((col, idx) => (
                                     <div key={idx} className={`col-lg-${idx === 0 ? 7 : 5}`}>
                                         <div className="content wow fadeInUp" data-wow-delay=".3s">

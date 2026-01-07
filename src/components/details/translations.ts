@@ -4,6 +4,7 @@ import { type ServiceDetail } from "../../interfaces/types";
 export const translations: { nl: ServiceDetail[]; en: ServiceDetail[] } = {
   nl: [
     {
+      data_id: "5",
       title: "Wateroplossingen voor Voedings-, Dranken- en Farmaceutische Industrie",
       tags: ["Voeding & Dranken", "Farmaceutisch", "Waterkwaliteit"],
       overview:
@@ -35,6 +36,7 @@ export const translations: { nl: ServiceDetail[]; en: ServiceDetail[] } = {
     }
     ,
     {
+      data_id: "6",
       title: "Complete Waterbehandelingsoplossingen",
       tags: ["Ultrafiltratie", "Membraantechnologie", "Wateroptimalisatie"],
       overview:
@@ -69,6 +71,7 @@ export const translations: { nl: ServiceDetail[]; en: ServiceDetail[] } = {
         "VaWat levert hoogwaardige waterbehandelingsoplossingen, afgestemd op uw specifieke behoeften. Onze focus ligt op maximale efficiëntie, minimale afvalproductie en energieverbruik, en het behalen van de gestelde kwaliteitsnormen.",
     },
     {
+      data_id: "7",
       title: "Levering van Onderdelen en Verbruiksgoederen",
       tags: ["Onderdelen", "Verbruiksgoederen", "Leveranciersnetwerk"],
       overview:
@@ -98,6 +101,7 @@ export const translations: { nl: ServiceDetail[]; en: ServiceDetail[] } = {
         "Vindt u bepaalde stukken van uw installatie niet terug? Vraag het aan VaWat en u ontvangt snel een passende oplossing. Contacteer ons nu voor een vrijblijvende offerte!",
     },
     {
+      data_id: "8",
       title: "Projectbegeleiding en Engineering",
       tags: ["Projectbegeleiding", "Engineering", "Waterbehandeling"],
       overview:

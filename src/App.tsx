@@ -72,7 +72,7 @@ const HomePage: React.FC = () => {
 
 const App: React.FC = () => {
   const [isOffcanvasOpen, setIsOffcanvasOpen] = useState(false);
-
+  
   return (
     <Router>
       <ScrollToTop />

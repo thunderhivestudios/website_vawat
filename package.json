@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://thunderhivestudios-web.github.io/website_vawat/",
+  "homepage": "https://thunderhivestudios.github.io/website_vawat/",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",

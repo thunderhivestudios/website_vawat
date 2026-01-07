@@ -62,7 +62,7 @@ const Services: React.FC<ServicesProps> = ({ onSelectService, hiddenIndices = []
             </div>
 
             <div className="col-lg-6">
-              <div className="core-feature-thumb wow img-custom-anim-right relative">
+              <div className="core-feature-thumb wow img-custom-anim-right relative image-debug-wrapper" data-label="4">
                 <img
                   src={coreFeatureThumb}
                   alt="Core feature"
