@@ -51,7 +51,7 @@ const Hero: React.FC = () => {
                 <div className="counter-box">
                   <div className="content">
                     <h2>
-                      <AnimatedCounter target={150000} duration={1200} className="counter-number" />L+
+                      <AnimatedCounter startValue={0} startTime={new Date("1996-01-01T00:00:00").getTime()} duration={900} ratePerHour={25} className="counter-number"/> m<sup>3</sup>
                     </h2>
                     <p>{t.waterCleaned}</p>
                   </div>
@@ -60,7 +60,7 @@ const Hero: React.FC = () => {
                 {/* === Customers Counter === */}
                 <div className="counter-box">
                   <h2>
-                    <AnimatedCounter target={98} duration={1200} className="counter-number" />+
+                    <AnimatedCounter target={100} duration={600} className="counter-number" />+
                   </h2>
                   <div className="content">
                     <p>{t.happyCustomers.line1}</p>
@@ -73,7 +73,7 @@ const Hero: React.FC = () => {
 
           {/* === Hero Image === */}
           <div className="col-lg-6">
-            <div className="hero-image z-100 image-debug-wrapper" data-label="1">
+            <div className="hero-image z-100">
               <img src={heroImage} alt="hero"/>
             </div>
           </div>

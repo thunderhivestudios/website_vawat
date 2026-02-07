@@ -20,11 +20,11 @@ const About: React.FC = () => {
           <div className="row g-4">
             <div className="col-lg-6">
               <div className="about-thumb">
-                <div className="thumb1 img-custom-anim-left wow image-debug-wrapper" data-label="2" data-wow-duration="1.5s" data-wow-delay="0.3s">
+                <div className="thumb1 img-custom-anim-left wow" data-wow-duration="1.5s" data-wow-delay="0.3s">
                   <img src={aboutThumb1} alt="about thumb 1" />
                 </div>
 
-                <div className="thumb2 img-custom-anim-top wow image-debug-wrapper" data-label="3" data-wow-duration="1.5s" data-wow-delay="0.5s">
+                <div className="thumb2 img-custom-anim-top wow" data-wow-duration="1.5s" data-wow-delay="0.5s" style={{maxWidth: "284px", maxHeight: "305px"}}>
                   <img src={aboutThumb2} alt="about thumb 2" />
                 </div>
 

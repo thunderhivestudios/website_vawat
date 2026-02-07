@@ -1,8 +1,6 @@
 import React from "react";
 import type { ServiceDetail } from "../../interfaces/types";
 
-import mainImage from "../../assets/img/service/details-1.jpg";
-
 const ServiceDetails: React.FC<ServiceDetail> = ({
     title,
     tags = [],
@@ -11,15 +9,16 @@ const ServiceDetails: React.FC<ServiceDetail> = ({
     additionalImages = [],
     paragraph,
     data_id = "",
+    mainImage: mainImg,
 }) => {
     return (
         <section className="service-details-section fix section-padding">
             <div className="container custom-container-4">
                 <div className="service-details-wrapper">
 
-                    {mainImage && (
-                        <div className="service-details-image wow fadeInUp image-debug-wrapper" data-label={data_id} data-wow-delay=".3s">
-                            <img src={mainImage} alt="Service" />
+                    {mainImg && (
+                        <div className="service-details-image wow fadeInUp" data-label={data_id} data-wow-delay=".3s" style={{maxHeight: "646px", maxWidth: "100%", overflow: "hidden"}}>
+                            <img src={mainImg} alt="Service" />
                         </div>
                     )}
 

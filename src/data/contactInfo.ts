@@ -15,7 +15,7 @@ export const creatorInfo = {
 
 export const companyInfo = {
   slogan: "We Care for Your Water!",
-  yearsExperience: 12,
+  yearsExperience: 30,
 }
 
 export const socialLinks = [

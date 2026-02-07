@@ -48,7 +48,7 @@ export const translations = {
         text: "Wij begeleiden uw waterprojecten volledig, van concept en planning tot implementatie, met oog voor kwaliteit, veiligheid en deadlines."
       },
       {
-        title: "Huiselijke Wateroplossingen",
+        title: "Huishoudelijke Wateroplossingen",
         text: "Wij bieden veilige en milieuvriendelijke wateroplossingen voor huishoudelijk gebruik en kleinschalige toepassingen."
       }
     ]
