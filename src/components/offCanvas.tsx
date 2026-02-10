@@ -20,43 +20,10 @@ const Offcanvas: React.FC<OffcanvasProps> = ({ isOpen, onClose }) => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-const handleNavigate = (href: string) => {
-  onClose();
-
-  if (!href.startsWith("#")) {
-    navigate(href);
-    return;
-  }
-
-  const isHome = location.hash === "#/" || location.hash === "#" || location.hash === "";
-
-  const scrollToTarget = () => {
-    const target = document.querySelector(href);
-    if (target) {
-      target.scrollIntoView({ behavior: "smooth" });
-      return true;
-    }
-    return false;
+  const handleNavigate = (to: string) => {
+    onClose();
+    navigate(to);
   };
-
-  if (isHome) {
-    scrollToTarget();
-  } else {
-    navigate("/");
-
-    const root = document.getElementById("root") || document.body;
-
-    const observer = new MutationObserver(() => {
-      if (scrollToTarget()) {
-        observer.disconnect();
-      }
-    });
-
-    observer.observe(root, { childList: true, subtree: true });
-    setTimeout(() => observer.disconnect(), 5000);
-  }
-};
-
 
   return (
     <div className="fix-area">
@@ -69,7 +36,7 @@ const handleNavigate = (href: string) => {
                 className="offcanvas__logo cursor-pointer"
                 onClick={() => handleNavigate("/")}
               >
-                <img src={logo} alt="logo" className="logo-offcanvas"/>
+                <img src={logo} alt="logo" className="logo-offcanvas" />
               </div>
               <div className="offcanvas__close" onClick={onClose}>
                 <button>
@@ -89,13 +56,39 @@ const handleNavigate = (href: string) => {
               <nav className="offcanvas__nav mb-4">
                 <ul className="list-unstyled">
                   {navLinks.map((link) => (
-                    <li key={link.href} className="mb-2">
-                      <button
-                        className={`d-block py-2 text-start bg-transparent border-0 w-100 ${link.className || ""}`}
-                        onClick={() => handleNavigate(link.href)}
-                      >
-                        {link.label}
-                      </button>
+                    <li key={link.label} className="mb-2">
+
+                      {/* ITEM WITH CHILDREN */}
+                      {link.children ? (
+                        <>
+                          <span className="d-block py-2">{link.label}</span>
+
+                          <ul className="list-unstyled ps-3">
+                            {link.children.map((child) => (
+                              <li key={child.to}>
+                                <button
+                                  className="d-block py-2 text-start bg-transparent border-0 w-100"
+                                  onClick={() => handleNavigate(child.to)}
+                                >
+                                  {child.label}
+                                </button>
+                              </li>
+                            ))}
+                          </ul>
+                        </>
+                      ) : (
+                        <button
+                          className="d-block py-2 text-start bg-transparent border-0 w-100"
+                          onClick={() =>
+                            handleNavigate(
+                              `/#${link.href?.replace("#", "")}`
+                            )
+                          }
+                        >
+                          {link.label}
+                        </button>
+                      )}
+
                     </li>
                   ))}
                 </ul>
