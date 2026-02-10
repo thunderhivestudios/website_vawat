@@ -10,82 +10,234 @@ const ServiceDetails: React.FC<ServiceDetail> = ({
     paragraph,
     data_id = "",
     mainImage: mainImg,
+    useTallImageLayout = false,
 }) => {
     return (
-        <section className="service-details-section fix section-padding">
+        <section className="service-details-section fix section-padding bg-gray-50 min-height-100vh">
             <div className="container custom-container-4">
                 <div className="service-details-wrapper">
 
-                    {mainImg && (
-                        <div className="service-details-image wow fadeInUp" data-label={data_id} data-wow-delay=".3s" style={{maxHeight: "646px", maxWidth: "100%", overflow: "hidden"}}>
-                            <img src={mainImg} alt="Service" />
-                        </div>
-                    )}
-
-                    <div className="details-content">
-                        <h2 className="wow fadeInUp" data-wow-delay=".3s">{title}</h2>
-
-                        {tags.length > 0 && (
-                            <ul className="post-card wow fadeInUp" data-wow-delay=".5s">
-                                {tags.map((tag, idx) => (
-                                    <li key={idx}>{tag}</li>
-                                ))}
-                            </ul>
-                        )}
-
-                        {/* Paragraph */}
-                        {paragraph && <p className="pt-2">{paragraph}</p>}
-
-                        {/* Secondary Columns */}
-                        {secondaryColumns.length > 0 && (
-                            <div className="row align-items-center mt-5">
-                                {secondaryColumns.map((col, idx) => (
-                                    <div key={idx} className={`col-lg-${idx === 0 ? 7 : 5}`}>
-                                        <div className="content wow fadeInUp" data-wow-delay=".3s">
-                                            <h3>{col.heading}</h3>
-                                            <p>{col.content}</p>
-                                        </div>
+                    {useTallImageLayout ? (
+                        <div className="row align-items-start g-5">
+                            {/* LEFT IMAGE */}
+                            {mainImg && (
+                                <div className="col-lg-5">
+                                    <div
+                                        className="service-details-image wow fadeInUp rounded-2xl overflow-hidden shadow-lg"
+                                        data-label={data_id}
+                                        data-wow-delay=".3s"
+                                    >
+                                        <img
+                                            src={mainImg}
+                                            alt="Service"
+                                            style={{
+                                                width: "100%",
+                                                height: "100%",
+                                                objectFit: "cover",
+                                            }}
+                                        />
                                     </div>
-                                ))}
-                            </div>
-                        )}
+                                </div>
+                            )}
 
-                        {benefits && benefits.length > 0 && (
-                            <div className="row g-4 mt-2">
-                                <div className="col-lg-12">
-                                    <h3>Benefits With Our Service</h3>
-                                    <div className="list-items">
-                                        {Array.from({ length: 3 }).map((_, colIdx) => (
-                                            <div key={colIdx} className="col-lg-4">
-                                                <ul className="wow fadeInUp" data-wow-delay={`.${colIdx + 3}s`}>
-                                                    {benefits
-                                                        .filter((_, i) => i % 3 === colIdx)
-                                                        .map((item, idx) => (
-                                                            <li key={idx}>
-                                                                <span>{item}</span>
-                                                            </li>
-                                                        ))}
-                                                </ul>
+                            {/* RIGHT PANEL */}
+                            <div className="col-lg-7">
+                                <div className="details-content bg-white rounded-2xl shadow-sm p-4 p-lg-5">
+
+                                    {/* Header */}
+                                    <div className="mb-4">
+                                        <h2 className="wow fadeInUp fw-semibold mb-3" data-wow-delay=".3s">
+                                            {title}
+                                        </h2>
+
+                                        {tags.length > 0 && (
+                                            <div className="d-flex flex-wrap gap-2 wow fadeInUp" data-wow-delay=".4s">
+                                                {tags.map((tag, idx) => (
+                                                    <span
+                                                        key={idx}
+                                                        className="px-3 py-1 rounded-pill bg-light border small"
+                                                    >
+                                                        {tag}
+                                                    </span>
+                                                ))}
+                                            </div>
+                                        )}
+                                    </div>
+
+                                    {/* Intro paragraph */}
+                                    {paragraph && (
+                                        <p className="text-muted fs-6 mb-4 border-start ps-3">
+                                            {paragraph}
+                                        </p>
+                                    )}
+
+                                    {/* Secondary Columns */}
+                                    {secondaryColumns.length > 0 && (
+                                        <div className="row mt-4 g-4">
+                                            {secondaryColumns.map((col, idx) => (
+                                                <div key={idx} className="col-lg-6">
+                                                    <div className="content h-100 p-3 rounded-xl bg-light wow fadeInUp">
+                                                        <h3 className="h5 mb-2 fw-semibold">
+                                                            {col.heading}
+                                                        </h3>
+                                                        <p className="mb-0 text-muted">
+                                                            {col.content}
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    )}
+
+                                    {/* Benefits */}
+                                    {benefits && benefits.length > 0 && (
+                                        <div className="mt-5">
+                                            <h3 className="h5 fw-semibold mb-3">
+                                                Benefits With Our Service
+                                            </h3>
+
+                                            <div className="row g-3">
+                                                {benefits.map((item, idx) => (
+                                                    <div key={idx} className="col-md-6">
+                                                        <div className="d-flex align-items-start gap-2 p-3 rounded-xl bg-light">
+                                                            <span className="mt-1">✓</span>
+                                                            <span>{item}</span>
+                                                        </div>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    )}
+
+                                    {/* Additional Images */}
+                                    {additionalImages.length > 0 && (
+                                        <div className="row g-4 mt-4">
+                                            {additionalImages.map((img, idx) => (
+                                                <div key={idx} className="col-lg-6">
+                                                    <div className="service-details-image rounded-xl overflow-hidden wow fadeInUp">
+                                                        <img
+                                                            src={img}
+                                                            alt={`Additional ${idx + 1}`}
+                                                        />
+                                                    </div>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    )}
+                                </div>
+                            </div>
+                        </div>
+                    ) : (
+                        /* ===== NON-TALL IMAGE LAYOUT (UPDATED STYLING) ===== */
+                        <>
+                            {mainImg && (
+                                <div
+                                    className="service-details-image wow fadeInUp rounded-2xl overflow-hidden shadow-lg mb-4"
+                                    data-label={data_id}
+                                    data-wow-delay=".3s"
+                                    style={{
+                                        maxHeight: "646px",
+                                        maxWidth: "100%",
+                                        overflow: "hidden",
+                                    }}
+                                >
+                                    <img
+                                        src={mainImg}
+                                        alt="Service"
+                                        style={{
+                                            width: "100%",
+                                            height: "100%",
+                                            objectFit: "cover",
+                                        }}
+                                    />
+                                </div>
+                            )}
+
+                            <div className="details-content bg-white rounded-2xl shadow-sm p-4 p-lg-5">
+
+                                {/* Header */}
+                                <div className="mb-4">
+                                    <h2 className="wow fadeInUp fw-semibold mb-3" data-wow-delay=".3s">
+                                        {title}
+                                    </h2>
+
+                                    {tags.length > 0 && (
+                                        <div className="d-flex flex-wrap gap-2 wow fadeInUp" data-wow-delay=".4s">
+                                            {tags.map((tag, idx) => (
+                                                <span
+                                                    key={idx}
+                                                    className="px-3 py-1 rounded-pill bg-light border small"
+                                                >
+                                                    {tag}
+                                                </span>
+                                            ))}
+                                        </div>
+                                    )}
+                                </div>
+
+                                {/* Intro paragraph */}
+                                {paragraph && (
+                                    <p className="text-muted fs-6 mb-4 border-start ps-3">
+                                        {paragraph}
+                                    </p>
+                                )}
+
+                                {/* Secondary Columns */}
+                                {secondaryColumns.length > 0 && (
+                                    <div className="row mt-4 g-4">
+                                        {secondaryColumns.map((col, idx) => (
+                                            <div key={idx} className="col-lg-6">
+                                                <div className="content h-100 p-3 rounded-xl bg-light wow fadeInUp">
+                                                    <h3 className="h5 mb-2 fw-semibold">
+                                                        {col.heading}
+                                                    </h3>
+                                                    <p className="mb-0 text-muted">
+                                                        {col.content}
+                                                    </p>
+                                                </div>
                                             </div>
                                         ))}
                                     </div>
-                                </div>
-                            </div>
-                        )}
+                                )}
 
-                        {/* Additional Images */}
-                        {additionalImages.length > 0 && (
-                            <div className="row g-4 mt-4 mb-4">
-                                {additionalImages.map((img, idx) => (
-                                    <div key={idx} className="col-lg-6">
-                                        <div className="service-details-image wow fadeInUp" data-wow-delay={`.${idx + 3}s`}>
-                                            <img src={img} alt={`Additional ${idx + 1}`} />
+                                {/* Benefits */}
+                                {benefits && benefits.length > 0 && (
+                                    <div className="mt-5">
+                                        <h3 className="h5 fw-semibold mb-3">
+                                            Benefits With Our Service
+                                        </h3>
+
+                                        <div className="row g-3">
+                                            {benefits.map((item, idx) => (
+                                                <div key={idx} className="col-md-6">
+                                                    <div className="d-flex align-items-start gap-2 p-3 rounded-xl bg-light">
+                                                        <span className="mt-1">✓</span>
+                                                        <span>{item}</span>
+                                                    </div>
+                                                </div>
+                                            ))}
                                         </div>
                                     </div>
-                                ))}
+                                )}
+
+                                {/* Additional Images */}
+                                {additionalImages.length > 0 && (
+                                    <div className="row g-4 mt-4">
+                                        {additionalImages.map((img, idx) => (
+                                            <div key={idx} className="col-lg-6">
+                                                <div className="service-details-image rounded-xl overflow-hidden wow fadeInUp">
+                                                    <img
+                                                        src={img}
+                                                        alt={`Additional ${idx + 1}`}
+                                                    />
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                )}
                             </div>
-                        )}
-                    </div>
+                        </>
+                    )}
                 </div>
             </div>
         </section>

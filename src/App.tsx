@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { HashRouter as Router, Routes, Route, useNavigate, useParams, useNavigationType } from "react-router-dom";
 import "./App.css";
 
-import Header from "./components/header";
+import Header from "./header/header";
 import Intro from "./components/intro/intro";
 import Offcanvas from "./components/offCanvas";
 import About from "./components/about/about";
@@ -14,6 +14,7 @@ import ServiceDetails from "./components/details/details";
 import { type ServiceDetail } from "./interfaces/types";
 import { translations } from "./components/details/translations";
 import ContactSection from "./components/contact/contact";
+import ScrollToHash from "./components/scrollToHash";
 
 // ScrollToTop handles scroll behavior on navigation
 const ScrollToTop: React.FC = () => {
@@ -48,6 +49,8 @@ const HomePage: React.FC = () => {
 
   return (
     <>
+      <ScrollToHash />
+
       <section className="intro-section fix" id="home">
         <Intro />
       </section>
@@ -72,7 +75,7 @@ const HomePage: React.FC = () => {
 
 const App: React.FC = () => {
   const [isOffcanvasOpen, setIsOffcanvasOpen] = useState(false);
-  
+
   return (
     <Router>
       <ScrollToTop />

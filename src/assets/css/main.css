@@ -3068,6 +3068,10 @@ input.main-search-input::placeholder {
   background-position: center center;
 }
 
+.min-height-100vh {
+  min-height: calc(100vh - 76px);
+}
+
 .section-padding {
   padding: 120px 0;
 }

@@ -6,10 +6,13 @@ import mainImage2 from "../../assets/img/service/2.jpg";
 import mainImage3 from "../../assets/img/service/3.jpg";
 import mainImage4 from "../../assets/img/service/4.jpg";
 
+import extraImage2 from "../../assets/img/service/2_2.jpg";
+
 export const translations: { nl: ServiceDetail[]; en: ServiceDetail[] } = {
   nl: [
     {
       mainImage: mainImage1,
+      useTallImageLayout: true,
       data_id: "5",
       title: "Wateroplossingen voor Voedings-, Dranken- en Farmaceutische Industrie",
       tags: ["Voeding & Dranken", "Farmaceutisch", "Waterkwaliteit"],
@@ -45,6 +48,9 @@ export const translations: { nl: ServiceDetail[]; en: ServiceDetail[] } = {
       mainImage: mainImage2,
       data_id: "6",
       title: "Complete Waterbehandelingsoplossingen",
+      additionalImages: [
+        extraImage2
+      ],
       tags: ["Ultrafiltratie", "Membraantechnologie", "Wateroptimalisatie"],
       overview:
         "VaWat biedt complete waterbehandelingsoplossingen voor elke stap in het proces, afgestemd op uw specifieke toepassing.",
@@ -59,6 +65,7 @@ export const translations: { nl: ServiceDetail[]; en: ServiceDetail[] } = {
           content:
             "Samen met de klant ontwerpen we de optimale waterbehandeling die voldoet aan alle kwaliteitseisen, met oog voor rendement, minimale afvalwaterproductie en energieverbruik.",
         },
+
       ],
       benefits: [
         "Ultrafiltratie",

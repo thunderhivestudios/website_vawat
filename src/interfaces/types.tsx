@@ -1,7 +1,10 @@
 export interface NavLink {
   label: string;
-  href: string;
-  className?: string;
+  href?: string;
+  children?: {
+    label: string;
+    to: string;
+  }[];
 }
 
 export interface ServiceDetail {
@@ -15,4 +18,5 @@ export interface ServiceDetail {
   additionalImages?: string[];
   paragraph?: string;
   data_id?: string;
+  useTallImageLayout?: boolean;
 }

@@ -23,8 +23,17 @@ export const socialLinks = [
 ];
 
 export const navLinks: NavLink[] = [
-  { label: "Home", href: "#home"},
+  { label: "Home", href: "#home" },
   { label: "About Us", href: "#about" },
-  { label: "Services", href: "#service" },
+  {
+    label: "Services",
+    href: "#service",
+    children: [
+      { label: "Advice & Consulting", to: "/services/0" },
+      { label: "Market Analysis", to: "/services/1" },
+      { label: "Financial Advice", to: "/services/2" },
+      { label: "Project Management", to: "/services/3" },
+    ],
+  },
   { label: "Contact", href: "#contact" },
 ];

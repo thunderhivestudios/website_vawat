@@ -17,6 +17,7 @@ const Header: React.FC<HeaderProps> = ({ onSidebarToggle }) => {
   const { lang, setLang } = useLanguage();
   const location = useLocation();
 
+
   useEffect(() => {
     const handleScroll = () => setIsSticky(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
@@ -46,25 +47,37 @@ const Header: React.FC<HeaderProps> = ({ onSidebarToggle }) => {
                     <nav id="mobile-menu">
                       <ul>
                         {navLinks.map((link) => {
-                          const isActive = isHome && window.location.hash === link.href;
-                          return (
-                            <li key={link.href} className={isActive ? "active" : ""}>
-                              {isHome ? (
-                                <a
-                                  href={link.href}
-                                  onClick={(e) => {
-                                    e.preventDefault();
-                                    const el = document.querySelector(link.href);
-                                    if (el) {
-                                      el.scrollIntoView({ behavior: "smooth" });
-                                    }
-                                  }}
+                          const isActive =
+                            isHome && link.href && window.location.hash === link.href;
+
+                          // ----- ITEM WITH DROPDOWN -----
+                          if (link.children) {
+                            return (
+                              <li key={link.label} className="has-dropdown">
+                                <Link
+                                  to={`/#${link.href?.replace("#", "")}`}
+                                  className="menu-link"
                                 >
                                   {link.label}
-                                </a>
-                              ) : (
-                                <Link to={`/#${link.href.replace("#", "")}`}>{link.label}</Link>
-                              )}
+                                </Link>
+
+                                <ul className="submenu">
+                                  {link.children.map((child) => (
+                                    <li key={child.to}>
+                                      <Link to={child.to}>{child.label}</Link>
+                                    </li>
+                                  ))}
+                                </ul>
+                              </li>
+                            );
+                          }
+
+                          // ----- NORMAL ITEM -----
+                          return (
+                            <li key={link.href} className={isActive ? "active" : ""}>
+                              <Link to={`/#${link.href?.replace("#", "")}`}>
+                                {link.label}
+                              </Link>
                             </li>
                           );
                         })}
