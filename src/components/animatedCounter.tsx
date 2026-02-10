@@ -1,14 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 
 interface AnimatedCounterProps {
-  // Animation mode
-  target?: number;      // legacy
-  startValue?: number;  // preferred
+  target?: number;
+  startValue?: number;
   duration?: number;
 
-  // Time-based mode
   ratePerHour?: number;
-  startTime?: number; // timestamp in ms
+  startTime?: number;
 
   className?: string;
 }
@@ -26,24 +24,40 @@ const AnimatedCounter: React.FC<AnimatedCounterProps> = ({
   const initialValue = startValue ?? target ?? 0;
   const [value, setValue] = useState(initialValue);
 
+  // refs must have defaults
+  const lastValueRef = useRef<number>(initialValue);
+  const animationRef = useRef<number | null>(null);
+
   useEffect(() => {
     // ✅ TIME-BASED MODE
     if (ratePerHour && startTime) {
-      const update = () => {
+      const animate = () => {
         const now = Date.now();
         const elapsedHours = (now - startTime) / 3600000;
+        const targetValue =
+          initialValue + elapsedHours * ratePerHour;
 
-        setValue(
-          initialValue + elapsedHours * ratePerHour
-        );
+        // smooth interpolation
+        const newValue =
+          lastValueRef.current +
+          (targetValue - lastValueRef.current) * 0.1;
+
+        lastValueRef.current = newValue;
+        setValue(newValue);
+
+        animationRef.current = requestAnimationFrame(animate);
       };
 
-      update();
-      const interval = setInterval(update, 1000);
-      return () => clearInterval(interval);
+      animationRef.current = requestAnimationFrame(animate);
+
+      return () => {
+        if (animationRef.current !== null) {
+          cancelAnimationFrame(animationRef.current);
+        }
+      };
     }
 
-    // ✅ ANIMATION MODE (0 → startValue)
+    // ✅ ANIMATION MODE
     let start: number | null = null;
 
     const step = (timestamp: number) => {
@@ -55,7 +69,7 @@ const AnimatedCounter: React.FC<AnimatedCounterProps> = ({
       );
 
       const eased = easeOutQuad(progress);
-      setValue(Math.floor(eased * initialValue));
+      setValue(eased * initialValue);
 
       if (progress < 1) {
         requestAnimationFrame(step);
@@ -65,11 +79,14 @@ const AnimatedCounter: React.FC<AnimatedCounterProps> = ({
     requestAnimationFrame(step);
   }, [initialValue, duration, ratePerHour, startTime]);
 
-  return (
-    <span className={className}>
-      {Math.floor(value).toLocaleString()}
-    </span>
-  );
+  const displayValue = ratePerHour
+    ? value.toLocaleString(undefined, {
+        minimumFractionDigits: 1,
+        maximumFractionDigits: 1,
+      })
+    : Math.floor(value).toLocaleString();
+
+  return <span className={className}>{displayValue}</span>;
 };
 
 export default AnimatedCounter;
