@@ -51,7 +51,7 @@ const Hero: React.FC = () => {
                 <div className="counter-box">
                   <div className="content">
                     <h2>
-                      <AnimatedCounter startValue={0} startTime={new Date("2013-01-01T00:00:00").getTime()} duration={900} ratePerHour={25} className="counter-number"/> m<sup>3</sup>
+                      <AnimatedCounter startValue={0} startTime={new Date("2013-05-01T00:00:00").getTime()} duration={900} ratePerHour={25} className="counter-number"/> m<sup>3</sup>
                     </h2>
                     <p>{t.waterCleaned}</p>
                   </div>

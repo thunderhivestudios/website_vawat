@@ -15,7 +15,7 @@ export const translations: { nl: ServiceDetail[]; en: ServiceDetail[] } = {
       useTallImageLayout: true,
       data_id: "5",
       title: "Wateroplossingen voor Voedings-, Dranken- en Farmaceutische Industrie",
-      tags: ["Voeding & Dranken", "Farmaceutisch", "Waterkwaliteit"],
+      tags: ["Voeding & Dranken", "Farmaceutisch", "Energiecentrales"],
       overview:
         "VaWat biedt gespecialiseerde oplossingen en advies voor waterbehandeling in voedings-, dranken- en farmaceutische industrie.",
       secondaryColumns: [
@@ -35,10 +35,11 @@ export const translations: { nl: ServiceDetail[]; en: ServiceDetail[] } = {
         },
       ],
       benefits: [
-        "Advies en oplossingen voor beide sectoren",
+        "Advies en oplossingen voor alle sectoren",
         "Optimalisatie van water- en energiegebruik",
         "Assistentie bij audits en haalbaarheidsstudies",
         "Trainingen en workshops",
+        "Optimale kwaliteit voor jullie behoeften"
       ],
       paragraph:
         "VaWat biedt bedrijven complete oplossingen voor waterprojecten, met expertise in advies, projectmanagement en kennis van productieprocessen.",
@@ -68,10 +69,10 @@ export const translations: { nl: ServiceDetail[]; en: ServiceDetail[] } = {
 
       ],
       benefits: [
-        "Ultrafiltratie",
         "Multimediafiltratie / Drukfilters",
         "Ontijzering en Mangaanverwijdering",
         "Waterverzachters en Onthardingsinstallaties",
+        "Ultrafiltratie",
         "Decarbonatatie met ionenuitwisselaarsharsen",
         "Demineralisatie met ionenuitwisselaars",
         "Omgekeerde osmose",
@@ -82,7 +83,7 @@ export const translations: { nl: ServiceDetail[]; en: ServiceDetail[] } = {
         "Ultrapuur water voor laboratoria",
       ],
       paragraph:
-        "VaWat levert hoogwaardige waterbehandelingsoplossingen, afgestemd op uw specifieke behoeften. Onze focus ligt op maximale efficiëntie, minimale afvalproductie en energieverbruik, en het behalen van de gestelde kwaliteitsnormen.",
+        "VaWat levert hoogwaardige waterbehandelingsoplossingen, afgestemd op uw specifieke behoeften. Onze focus ligt op maximale efficiëntie, minimale afvalproductie en energieverbruik, en het behalen van de gestelde kwaliteitsnormen. Alsook het respecteren van de steeds strenger wordende milieunormen.",
     },
     {
       mainImage: mainImage3,
@@ -100,16 +101,17 @@ export const translations: { nl: ServiceDetail[]; en: ServiceDetail[] } = {
         {
           heading: "Verbruiksgoederen",
           content:
-            "Filterpatronen, vullingen voor filters, ionenuitwisselaarsharsen, membranen (Micro-, Ultra-, Nano-, Omgekeerde osmose), CDI-stacks, UV-lampen en meer.",
+            "Filterpatronen, vullingen voor filters, ionenuitwisselaarsharsen, membranen (Micro-, Ultra-, Nanofiltratie, Omgekeerde osmose), CDI-stacks, UV-lampen en meer.",
         },
       ],
       benefits: [
         "Filterpatronen (alle groottes en fijnheden)",
         "Vullingen voor zandfilters, ontijzeraars, actieve koolfilters",
         "Ionenuitwisselaarsharsen",
-        "Membranen voor micro-, ultra-, nano- en omgekeerde osmose",
+        "Membranen voor micro-, ultra-, nanofiltratie en omgekeerde osmose",
         "CDI-stacks en powerboards",
         "UV-lampen en quartzbuizen",
+        "Regeneratie van mengbedpatronen voor demiwater aanmaak",
         "Vervangpatronen voor UPW-systemen",
       ],
       paragraph:

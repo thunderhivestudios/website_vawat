@@ -20,10 +20,6 @@ export const translations = {
         title: "Project Management",
         text: "From planning to execution, we manage your water projects with precision, ensuring deadlines, budgets, and quality standards are met."
       },
-      {
-        title: "Domestic Water Solutions",
-        text: "We design and implement safe, reliable, and eco-friendly water solutions for residential and small-scale applications."
-      }
     ]
   },
   nl: {
@@ -37,7 +33,7 @@ export const translations = {
       },
       {
         title: "Waterbehandeling",
-        text: "Wij leveren complete oplossingen voor industriële waterbehandeling, van filtratie tot chemische processen, volledig afgestemd op uw behoeften."
+        text: "Wij leveren complete oplossingen voor industriële waterbehandeling, van (zand)filtratie tot chemische processen en membraantechnologieën, volledig afgestemd op uw behoeften."
       },
       {
         title: "Onderdelen & Toebehoren",
@@ -47,10 +43,6 @@ export const translations = {
         title: "Projecten van A tot Water",
         text: "Wij begeleiden uw waterprojecten volledig, van concept en planning tot implementatie, met oog voor kwaliteit, veiligheid en deadlines."
       },
-      {
-        title: "Huishoudelijke Wateroplossingen",
-        text: "Wij bieden veilige en milieuvriendelijke wateroplossingen voor huishoudelijk gebruik en kleinschalige toepassingen."
-      }
     ]
   }
 };

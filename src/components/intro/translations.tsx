@@ -1,6 +1,6 @@
 export const translations = {
   en: {
-    waterCleaned: "Water cleaned",
+    waterCleaned: "Water saved",
     happyCustomers: {
       line1: "repeated",
       line2: "happy customers.",
@@ -8,7 +8,7 @@ export const translations = {
   },
 
   nl: {
-    waterCleaned: "Water gereinigd",
+    waterCleaned: "Water bespaard",
     happyCustomers: {
       line1: "terugkerende",
       line2: "tevreden klanten.",
