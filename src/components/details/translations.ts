@@ -153,6 +153,7 @@ export const translations: { nl: ServiceDetail[]; en: ServiceDetail[] } = {
   en: [
     {
       mainImage: mainImage1,
+      useTallImageLayout: true,
       title: "Water Solutions for Food, Beverage & Pharmaceutical Industry",
       tags: ["Food & Beverage", "Pharmaceutical", "Water Quality"],
       overview:

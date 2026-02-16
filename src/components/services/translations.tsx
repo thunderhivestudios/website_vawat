@@ -6,22 +6,23 @@ export const translations = {
     services: [
       {
         title: "Advice & Consulting",
-        text: "We provide expert advice and tailored consulting solutions to optimize your water management processes, ensuring efficiency and sustainability."
+        text: "VaWat provides expert advice and tailor-made consulting to optimize your water treatment processes, with a strong focus on efficiency and sustainability."
       },
       {
-        title: "Market Analysis",
-        text: "Our team conducts detailed market analysis to identify trends, opportunities, and risks in the water industry, helping you make informed decisions."
+        title: "Water Treatment",
+        text: "We deliver complete industrial water treatment solutions, ranging from (sand) filtration to chemical processes and membrane technologies, fully tailored to your specific needs."
       },
       {
-        title: "Financial Advice",
-        text: "We offer strategic financial guidance to maximize ROI on water treatment projects and ensure cost-effective operations."
+        title: "Parts & Accessories",
+        text: "We supply high-quality parts and accessories for water treatment systems, ensuring your installation continues to operate reliably and efficiently."
       },
       {
-        title: "Project Management",
-        text: "From planning to execution, we manage your water projects with precision, ensuring deadlines, budgets, and quality standards are met."
+        title: "Projects from A to Water",
+        text: "We support your water projects from concept and planning through to implementation, with attention to quality, safety, and deadlines."
       },
     ]
   },
+
   nl: {
     sectionSubtitle: "Onze Services",
     sectionTitle: "De Beste Oplossing Voor Uw Bedrijf",

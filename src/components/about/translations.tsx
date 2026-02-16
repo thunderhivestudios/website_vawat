@@ -1,8 +1,9 @@
 // src/data/aboutText.ts
 export const translations = {
   nl: {
-    subtitle: "About",
+    subtitle: "Over ons",
     title: "Oplossingen voor duurzame waterbehandeling",
+    experience: "Jaren ervaring",
     description: `VaWat biedt deskundig advies en hoogwaardige consultancy op maat voor waterbehandeling.
 
 Zaakvoerder Eddy Van Assche steunt op jarenlange ervaring bij toonaangevende bedrijven in duurzaam watermanagement.
@@ -16,16 +17,20 @@ Ook service en onderhoud van verschillende fabrikanten behoren tot ons takenpakk
 We Care for Your Water!`,
     buttonText: "Ontdek meer",
   },
+
   en: {
     subtitle: "About",
     title: "Solutions for Sustainable Water Treatment",
+    experience: "Years Experience",
     description: `VaWat provides expert advice and high-quality, tailor-made consultancy for water treatment.
 
-Eddy Van Assche relies on years of experience with leading companies in sustainable water management.
+Managing director Eddy Van Assche builds on many years of experience with leading companies in sustainable water management.
 
-We operate in sectors such as the food and beverage industry, pharmaceutical sector, energy and metal industries.
+For both new and existing installations, VaWat offers optimal solutions for the maintenance as well as the upgrading of your equipment.
 
-From audits and feasibility studies to complete customized concepts — VaWat provides strategic solutions that prioritize sustainability, efficiency, and quality.
+We are mainly active in the food and beverage industry, pharmaceutical sector, and the energy and metal industries.
+
+Service and maintenance of equipment from various manufacturers are also part of our activities.
 
 We Care for Your Water!`,
     buttonText: "Discover More",

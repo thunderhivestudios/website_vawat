@@ -4,7 +4,7 @@ import "./App.css";
 
 import Header from "./header/header";
 import Intro from "./components/intro/intro";
-import Offcanvas from "./components/offCanvas";
+import Offcanvas from "./components/offCanvas/offCanvas";
 import About from "./components/about/about";
 import Services from "./components/services/services";
 import Footer from "./components/footer/footer";

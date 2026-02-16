@@ -120,7 +120,6 @@ h6 {
   margin: 0px;
   padding: 0;
   color: var(--title);
-  text-transform: capitalize;
   transition: all 0.4s ease-in-out;
 }
 
@@ -447,7 +446,6 @@ input[type=radio]:checked ~ label::before {
   -moz-transition: all 0.3s ease-in-out;
   -ms-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
-  text-transform: capitalize;
 }
 @media (max-width: 1399px) {
   .theme-btn {
@@ -7777,7 +7775,6 @@ textarea.is-invalid {
   width: 106px;
   height: 100%;
   content: "";
-  background-color: #273339;
   z-index: 9;
 }
 @media (max-width: 1899px) {

@@ -5,7 +5,9 @@ import blackLogo from "./../assets/img/logo/black-logo.svg";
 
 import { useViewport } from "../contexts/viewportContext";
 import { useLanguage } from "../contexts/languageContext";
-import { navLinks } from "../data/contactInfo";
+
+import { translations } from "./translations";
+import { navStructure } from "../data/contactInfo";
 
 interface HeaderProps {
   onSidebarToggle: () => void;
@@ -16,6 +18,16 @@ const Header: React.FC<HeaderProps> = ({ onSidebarToggle }) => {
   const { isMobile } = useViewport();
   const { lang, setLang } = useLanguage();
   const location = useLocation();
+  const text = translations[lang];
+
+  const navLinks = navStructure.map((link) => ({
+    ...link,
+    label: (text.nav as any)[link.key],
+    children: link.children?.map((child) => ({
+      ...child,
+      label: (text.nav as any).serviceItems[child.key],
+    })),
+  }));
 
 
   useEffect(() => {

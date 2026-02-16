@@ -36,7 +36,7 @@ const About: React.FC = () => {
                   <h2>
                     <span className="counter-number">{companyInfo.yearsExperience}</span>+
                   </h2>
-                  <p>Years Experience</p>
+                  <p>{text.experience}</p>
                 </div>
               </div>
             </div>

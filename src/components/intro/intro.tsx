@@ -1,7 +1,6 @@
 import React from "react";
 
 // Import images
-import heroLogo from "../../assets/img/logo/logo.svg";
 import arrowIcon from "../../assets/img/hero/arrow.png";
 import heroImage from "../../assets/img/hero/01.jpg";
 
@@ -18,19 +17,6 @@ const Hero: React.FC = () => {
 
   return (
     <section className="hero-section hero-1 fix">
-      {/* === Social + Logo === */}
-      <div className="hero-social">
-        <a href="/" className="hero-logo">
-          <img src={heroLogo} alt="logo" />
-        </a>
-        <ul className="social-list">
-          {socialLinks.map((social, index) => (
-            <li key={index}>
-              <a href={social.url}>{social.name}</a>
-            </li>
-          ))}
-        </ul>
-      </div>
 
       {/* === Hero Content === */}
       <div className="container-fluid">

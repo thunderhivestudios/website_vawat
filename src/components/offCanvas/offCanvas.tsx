@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
-import logo from "../assets/img/logo/black-logo.svg";
-import { contactInfo, socialLinks, navLinks } from "../data/contactInfo";
-import { useNavigate } from "react-router-dom";
+import logo from "../../assets/img/logo/black-logo.svg";
+import { contactInfo, socialLinks, navStructure } from "../../data/contactInfo";
+import { Link, useNavigate } from "react-router-dom";
+import { useLanguage } from "../../contexts/languageContext";
+
+import { translations } from "./translations";
 
 interface OffcanvasProps {
   isOpen: boolean;
@@ -11,6 +14,17 @@ interface OffcanvasProps {
 const Offcanvas: React.FC<OffcanvasProps> = ({ isOpen, onClose }) => {
   const [isMobile, setIsMobile] = useState(false);
   const navigate = useNavigate();
+  const { lang, setLang } = useLanguage();
+  const text = translations[lang];
+
+  const navLinks = navStructure.map((link) => ({
+    ...link,
+    label: (text.nav as any)[link.key],
+    children: link.children?.map((child) => ({
+      ...child,
+      label: (text.nav as any).serviceItems[child.key],
+    })),
+  }));
 
   // Detect viewport width
   useEffect(() => {
@@ -46,9 +60,7 @@ const Offcanvas: React.FC<OffcanvasProps> = ({ isOpen, onClose }) => {
             </div>
 
             <p className="text d-none d-xl-block">
-              Nullam dignissim, ante scelerisque the is euismod fermentum odio sem
-              semper the is erat, a feugiat leo urna eget eros. Duis Aenean a
-              imperdiet risus.
+              {text.offcanvas.description}
             </p>
 
             {/* === Navigation (Mobile Only) === */}
@@ -96,7 +108,7 @@ const Offcanvas: React.FC<OffcanvasProps> = ({ isOpen, onClose }) => {
             )}
 
             <div className="offcanvas__contact">
-              <h4>Contact Info</h4>
+              <h4>{text.offcanvas.contactTitle}</h4>
               <ul>
                 <li className="d-flex align-items-center">
                   <div className="offcanvas__contact-icon">
@@ -131,12 +143,14 @@ const Offcanvas: React.FC<OffcanvasProps> = ({ isOpen, onClose }) => {
               </ul>
 
               <div className="main-button mt-4">
-                <button
-                  className="theme-btn w-100 text-center"
-                  onClick={() => handleNavigate("/contact")}
+                <Link
+                  to="/#contact"
+                  className="theme-btn w-100 text-center d-block"
+                  onClick={onClose}
                 >
-                  Get Started <i className="fa-sharp fa-regular fa-arrow-up-right"></i>
-                </button>
+                  {text.offcanvas.getStarted}
+                  <i className="fa-sharp fa-regular fa-arrow-up-right"></i>
+                </Link>
               </div>
 
               <div className="social-icon d-flex align-items-center mt-4">

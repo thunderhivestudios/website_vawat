@@ -22,18 +22,19 @@ export const socialLinks = [
   { icon: "fab fa-linkedin-in", url: "https://www.linkedin.com/in/eddy-van-assche-9364749/", name: "LinkedIn" },
 ];
 
-export const navLinks: NavLink[] = [
-  { label: "Home", href: "#home" },
-  { label: "About Us", href: "#about" },
+export const navStructure = [
+  { key: "home", href: "#home" },
+  { key: "about", href: "#about" },
   {
-    label: "Services",
+    key: "services",
     href: "#service",
     children: [
-      { label: "Advice & Consulting", to: "/services/0" },
-      { label: "Market Analysis", to: "/services/1" },
-      { label: "Financial Advice", to: "/services/2" },
-      { label: "Project Management", to: "/services/3" },
+      { key: 0, to: "/services/0" },
+      { key: 1, to: "/services/1" },
+      { key: 2, to: "/services/2" },
+      { key: 3, to: "/services/3" },
     ],
   },
-  { label: "Contact", href: "#contact" },
+  { key: "contact", href: "#contact" },
 ];
+
