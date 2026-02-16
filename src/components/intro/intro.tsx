@@ -5,7 +5,7 @@ import arrowIcon from "../../assets/img/hero/arrow.png";
 import heroImage from "../../assets/img/hero/01.jpg";
 
 // Import data
-import { companyInfo, socialLinks } from "../../data/contactInfo";
+import { companyInfo } from "../../data/contactInfo";
 import { useLanguage } from "../../contexts/languageContext";
 import { translations } from "./translations";
 import AnimatedCounter from "../animatedCounter";

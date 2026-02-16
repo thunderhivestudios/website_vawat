@@ -1,5 +1,3 @@
-import type { NavLink } from "../interfaces/types";
-
 export const contactInfo = {
   address: "Zaubeekstraat 73, 9870 Zulte, Belgium",
   email: "eddy@vawat.be",

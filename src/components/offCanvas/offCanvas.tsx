@@ -14,7 +14,7 @@ interface OffcanvasProps {
 const Offcanvas: React.FC<OffcanvasProps> = ({ isOpen, onClose }) => {
   const [isMobile, setIsMobile] = useState(false);
   const navigate = useNavigate();
-  const { lang, setLang } = useLanguage();
+  const { lang } = useLanguage();
   const text = translations[lang];
 
   const navLinks = navStructure.map((link) => ({
