@@ -45,38 +45,41 @@ const ContactSection: React.FC = () => {
               <div className="col-xl-12">
                 <div className="contact-form style1 wow fadeInUp" data-wow-delay=".3s">
                   <h2>{t.form.heading}</h2>
-                  <form className="row" action="#">
+                  <form className="row" action="/contact.php" method="POST">
                     <div className="col-md-6">
-                      <input type="text" placeholder={t.form.fullName} />
+                      <input type="text" name="fullName" placeholder={t.form.fullName} required/>
                     </div>
+
                     <div className="col-md-6">
-                      <input type="email" placeholder={t.form.email} />
+                      <input type="email" name="email" placeholder={t.form.email} required/>
                     </div>
+
                     <div className="col-md-6">
-                      <input type="number" placeholder={t.form.phone} />
+                      <input type="text" name="phone" placeholder={t.form.phone}/>
                     </div>
+
                     <div className="col-md-6">
-                      <select name="orderby" className="single-select" aria-label="Shop order">
-                        <option value="subject">{t.form.subject}</option>
+                      <select name="subject" className="single-select">
+                        <option value="general">{t.form.subject}</option>
                         <option value="greetings">{t.form.greetings}</option>
                         <option value="order">{t.form.order}</option>
                       </select>
                     </div>
+
                     <div className="col-12">
-                      <textarea
-                        id="message"
-                        className="form-control"
-                        placeholder={t.form.message}
-                        rows={5}
-                      />
+                      <textarea name="message" placeholder={t.form.message} rows={5} required/>
                     </div>
+
+                    <input type="text" name="company" style={{ display: "none" }} tabIndex={-1} autoComplete="off"/>
+                    <input type="hidden" name="form_time" value={Date.now()} />
+
                     <div className="col-12 form-group mb-0">
-                      <button className="theme-btn w-100">
-                        {t.form.submit}{" "}
-                        <i className="fa-sharp fa-regular fa-arrow-right-long bg-transparent text-white"></i>
+                      <button type="submit" className="theme-btn w-100">
+                        {t.form.submit}
                       </button>
                     </div>
                   </form>
+
                 </div>
               </div>
             </div>
