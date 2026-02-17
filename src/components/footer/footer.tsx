@@ -9,7 +9,7 @@ const Footer: React.FC = () => {
                 <div className="container">
                     <div className="footer-wrapper d-flex align-items-center justify-content-between">
                         <p className="wow fadeInLeft color-2" data-wow-delay=".3s">
-                            © Copyright 2025 <span className="divider">|</span>{" "}
+                            © Copyright 2026 <span className="divider">|</span>{" "}
                             <a href={creatorInfo.website} target="_blank" rel="noopener noreferrer">
                                 {creatorInfo.name}
                             </a>

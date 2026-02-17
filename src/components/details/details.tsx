@@ -131,25 +131,53 @@ const ServiceDetails: React.FC<ServiceDetail> = ({
                         /* ===== NON-TALL IMAGE LAYOUT (UPDATED STYLING) ===== */
                         <>
                             {mainImg && (
-                                <div
-                                    className="service-details-image wow fadeInUp rounded-2xl overflow-hidden shadow-lg mb-4"
-                                    data-label={data_id}
-                                    data-wow-delay=".3s"
-                                    style={{
-                                        maxHeight: "646px",
-                                        maxWidth: "100%",
-                                        overflow: "hidden",
-                                    }}
-                                >
-                                    <img
-                                        src={mainImg}
-                                        alt="Service"
-                                        style={{
-                                            width: "100%",
-                                            height: "100%",
-                                            objectFit: "cover",
-                                        }}
-                                    />
+                                <div className="row g-4 mt-4">
+
+                                    {/* MAIN IMAGE */}
+                                    <div
+                                        className={
+                                            additionalImages.length > 0
+                                                ? "col-lg-6"
+                                                : "col-12"
+                                        }
+                                    >
+                                        <div
+                                            className="service-details-image wow fadeInUp rounded-2xl overflow-hidden shadow-lg h-100"
+                                            data-label={data_id}
+                                            data-wow-delay=".3s"
+                                            style={{
+                                                maxHeight: "646px",
+                                                overflow: "hidden",
+                                            }}
+                                        >
+                                            <img
+                                                src={mainImg}
+                                                alt="Service"
+                                                style={{
+                                                    width: "100%",
+                                                    height: "100%",
+                                                    objectFit: "cover",
+                                                }}
+                                            />
+                                        </div>
+                                    </div>
+
+                                    {/* FIRST ADDITIONAL IMAGE ONLY */}
+                                    {additionalImages[0] && (
+                                        <div className="col-lg-6">
+                                            <div className="service-details-image rounded-2xl overflow-hidden wow fadeInUp h-100">
+                                                <img
+                                                    src={additionalImages[0]}
+                                                    alt="Additional"
+                                                    style={{
+                                                        width: "100%",
+                                                        height: "100%",
+                                                        objectFit: "cover",
+                                                    }}
+                                                />
+                                            </div>
+                                        </div>
+                                    )}
                                 </div>
                             )}
 
@@ -220,15 +248,20 @@ const ServiceDetails: React.FC<ServiceDetail> = ({
                                     </div>
                                 )}
 
-                                {/* Additional Images */}
-                                {additionalImages.length > 0 && (
+                                {/* Additional Images (skip first) */}
+                                {additionalImages.length > 1 && (
                                     <div className="row g-4 mt-4">
-                                        {additionalImages.map((img, idx) => (
+                                        {additionalImages.slice(1).map((img, idx) => (
                                             <div key={idx} className="col-lg-6">
                                                 <div className="service-details-image rounded-xl overflow-hidden wow fadeInUp">
                                                     <img
                                                         src={img}
-                                                        alt={`Additional ${idx + 1}`}
+                                                        alt={`Additional ${idx + 2}`}
+                                                        style={{
+                                                            width: "100%",
+                                                            height: "100%",
+                                                            objectFit: "cover",
+                                                        }}
                                                     />
                                                 </div>
                                             </div>

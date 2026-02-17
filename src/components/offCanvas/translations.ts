@@ -14,8 +14,7 @@ export const translations = {
     },
 
     offcanvas: {
-      description:
-        "Nullam dignissim, ante scelerisque the is euismod fermentum odio sem semper the is erat, a feugiat leo urna eget eros. Duis Aenean a imperdiet risus.",
+      description: "Vawat supports companies with consultancy, engineering and complete solutions for industrial water treatment. We focus on efficiency, reliability and sustainable use of water and energy.",
       contactTitle: "Contact Info",
       getStarted: "Get in Touch",
     },
@@ -37,7 +36,7 @@ export const translations = {
 
     offcanvas: {
       description:
-        "Nullam dignissim, ante scelerisque euismod fermentum. Wanneer alles stabiel is, ontstaat er ruimte voor groei en duurzame samenwerking.",
+        "Vawat ondersteunt bedrijven met advies, engineering en complete oplossingen voor industriële waterbehandeling, met focus op efficiëntie, betrouwbaarheid en duurzaam watergebruik.",
       contactTitle: "Contactgegevens",
       getStarted: "Neem contact op",
     },
