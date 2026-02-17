@@ -2,6 +2,8 @@ import React from "react";
 import { useLanguage } from "../../contexts/languageContext";
 import { translations, type ContactTranslations } from "./translations";
 
+import aboutIcon from "./../../assets/img/icon/subTitleIconWhite.svg"
+
 const ContactSection: React.FC = () => {
   const { lang } = useLanguage();
   const t = translations[lang] as ContactTranslations;
@@ -17,7 +19,7 @@ const ContactSection: React.FC = () => {
                   <div className="section-title text-left">
                     <span className="subtitle text-white wow fadeInUp">
                       <img
-                        src="src/assets/img/icon/subTitleIconWhite.svg"
+                        src={aboutIcon}
                         alt="icon"
                       />
                       {t.subtitle}
