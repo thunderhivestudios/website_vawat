@@ -48,5 +48,5 @@ $headers .= "Reply-To: $email\r\n";
 
 mail($to, $mailSubject, $mailBody, $headers);
 
-header("Location: /?success=1#contact");
+header("Location: https://vawat.be/#/%23contact");
 exit;

@@ -12,6 +12,7 @@ const ServiceDetails: React.FC<ServiceDetail> = ({
     mainImage: mainImg,
     useTallImageLayout = false,
 }) => {
+    
     return (
         <section className="service-details-section fix section-padding bg-gray-50 min-height-100vh">
             <div className="container custom-container-4">

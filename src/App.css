@@ -9,3 +9,17 @@
 @import './assets/css/swiper-bundle.min.css';
 @import './assets/css/nice-select.css';
 @import './assets/css/main.css';
+
+@media (max-width: 991px) {
+  .counter-number {
+    font-size: 40px;
+  }
+
+  .not-for-mobile {
+    display: none;
+  }
+
+  .core-feature-box.style1:hover .icon i {
+  transform: rotate(0);
+}
+}

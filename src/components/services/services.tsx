@@ -50,7 +50,7 @@ const Services: React.FC<ServicesProps> = ({ onSelectService, hiddenIndices = []
                         <span className="whitespace-nowrap mw-150">{service.title}</span>
                       </div>
 
-                      <p className="text">{service.text}</p>
+                      <p className="text not-for-mobile">{service.text}</p>
 
                       <div className={`icon ${isHidden ? "invisible" : ""}`}>
                         <i className="fa-regular fa-arrow-down-right"></i>
