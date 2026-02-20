@@ -11,7 +11,7 @@
 @import './assets/css/main.css';
 
 @media (max-width: 991px) {
-  .counter-number {
+  .counter-box .counter-number {
     font-size: 40px;
   }
 
@@ -20,6 +20,16 @@
   }
 
   .core-feature-box.style1:hover .icon i {
-  transform: rotate(0);
+    transform: rotate(0);
+  }
 }
+
+@media (max-width: 375px) {
+  .counter-box .counter-number {
+    font-size: 36px;
+  }
+
+  .hero-1 .hero-content .hero-counter-items .counter-box h2 {
+    font-size: 30px;
+  }
 }

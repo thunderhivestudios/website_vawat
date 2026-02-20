@@ -6,10 +6,10 @@ export const translations = {
       services: "Services",
       contact: "Contact",
       serviceItems: [
-        "Advice & Consulting",
-        "Market Analysis",
-        "Financial Advice",
-        "Project Management",
+        "Advice & consulting",
+        "Water treatment",
+        "Parts & accessories",
+        "Projects from A to Water",
       ],
     },
 
@@ -27,10 +27,10 @@ export const translations = {
       services: "Diensten",
       contact: "Contact",
       serviceItems: [
-        "Advies & Consulting",
-        "Marktanalyse",
-        "Financieel Advies",
-        "Projectmanagement",
+        "Advies & consulting",
+        "Waterbehandeling",
+        "Onderdelen & toebehoren",
+        "Projecten van A tot Water",
       ],
     },
 

@@ -61,11 +61,7 @@ const ContactSection: React.FC = () => {
                     </div>
 
                     <div className="col-md-6">
-                      <select name="subject" className="single-select">
-                        <option value="general">{t.form.subject}</option>
-                        <option value="greetings">{t.form.greetings}</option>
-                        <option value="order">{t.form.order}</option>
-                      </select>
+                      <input type="text" name="subject" placeholder={t.form.subject}/>
                     </div>
 
                     <div className="col-12">
